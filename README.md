@@ -1,4 +1,4 @@
-# English Alphabet Detection with Hopfield neural network
+# English Alphabet Detection with Hopfield Neural Network
 
 [about Hopfield Neural Network](https://en.wikipedia.org/wiki/Hopfield_network)
 
