@@ -8,9 +8,9 @@
 - run ```python main.py``` to test the hopfield neural network and result will be save in test_result directory
 
 ### Result
-font = 16
+##### font = 16
 ![result](test_result/16/A.bmp.png)
-font = 32
+##### font = 32
 ![result](test_result/32/A.bmp.png)
-font = 64
+##### font = 64
 ![result](test_result/64/A.bmp.png)
