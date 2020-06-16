@@ -23,20 +23,29 @@ def calculate_error(data1, data2):
 # test the hopfield neural network
 if __name__ == "__main__":
 
+    if not os.path.isdir("test_result"):
+        os.mkdir("test_result")
+    test_directory = os.path.join(os.getcwd(), "test_result")
+
     for font_size in [16, 32, 64]:
+        font_directory = os.path.join(os.getcwd(), "test_result", str(font_size))
+        if not os.path.isdir(font_directory):
+            os.mkdir(font_directory)
+
         net = hofield(neurons=3000)
 
         # train hopfield
-        train_data = os.listdir("./train_data/" + str(font_size) + "/")
-        for addr in train_data:
-            data = image_to_np("./train_data/" + str(font_size) + "/" + addr)
+        train_directory = os.path.join(os.getcwd(), "train_data", str(font_size))
+        train_data = os.listdir(train_directory)
+        for img in train_data:
+            data = image_to_np(os.path.join(train_directory, img))
             data = np.reshape(data, (data.size))
             net.train(data=data)
 
         # test hopfield
         errors = {0.1:0, 0.3:0, 0.6:0}
-        for addr in train_data:
-            test = image_to_np("./train_data/" + str(font_size) + "/" + addr)
+        for img in train_data:
+            test = image_to_np(os.path.join(train_directory, img))
             x = 1
             for noise in [0.1,0.3,0.6]:
                 data = np.copy(test)
@@ -57,6 +66,6 @@ if __name__ == "__main__":
 
                 errors[noise] += e
                 x += 1
-            plt.savefig("./test_result/" + str(font_size) + "/" + addr + ".png")
+            plt.savefig(os.path.join(font_directory, img + ".png"))
         print(errors)
 
