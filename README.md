@@ -4,7 +4,7 @@
 
 ### Usage
 - install requirements with ```pip install -r requirements.pip```
-- run ```python gerator.py``` to generate trian data
+- run ```python generator.py``` to generate trian data
 - run ```python main.py``` to test the hopfield neural network and result will be save in test_result directory
 
 ### Result
